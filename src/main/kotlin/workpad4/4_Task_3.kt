@@ -16,15 +16,11 @@ fun f(L: Double, R: Double): Double {
         println("f(B) = ${calculateFunc(B)}")
         return B
     }
-
     return if (calculateFunc(L) * calculateFunc(B) < 0) {
         f(L, B)
     } else {
         f(B, R)
     }
-}
-fun printDiv(){
-//    val answer = f(B)
 }
 
 

@@ -27,6 +27,7 @@ private class IntHashMap(private val size: Int) {
 fun main() {
     val intHashMap = IntHashMap(7)
     val arrayOfNums = listOf(86, 90, 27, 29, 38, 30, 40)
+    println(arrayOfNums.toString())
     for (item in arrayOfNums) {
         intHashMap.put(item)
     }
