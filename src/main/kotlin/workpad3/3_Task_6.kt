@@ -9,14 +9,12 @@ fun divideHalfDivision(dividend: String, divisor: String): Pair<String, String> 
 
     val divisorInt = divisor.toBigInteger()
     val dividendInt = dividend.toBigInteger()
-    if (dividendInt < divisorInt) return "0" to dividend // Если делимое меньше делителя
+    if (dividendInt < divisorInt) return "0" to dividend
 
-    // Инициализируем границы поиска
     var low = BigInteger.ZERO
     var high = dividendInt
     var quotient = BigInteger.ZERO
 
-    // Метод половинного деления
     while (low <= high) {
         val mid = (low + high) / BigInteger.valueOf(2)
         val product = mid * divisorInt
@@ -29,7 +27,6 @@ fun divideHalfDivision(dividend: String, divisor: String): Pair<String, String> 
         }
     }
 
-    // Остаток: делимое - (частное * делитель)
     val remainder = dividendInt - (quotient * divisorInt)
 
     return quotient.toString() to remainder.toString()
