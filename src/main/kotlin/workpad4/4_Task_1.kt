@@ -1,5 +1,5 @@
 package workpad4
-//
+
 fun getGcd(a : Int, b : Int) : Int {
     return when {
         a==0 -> b

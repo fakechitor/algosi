@@ -14,7 +14,9 @@ fun twoSum(nums: IntArray, target: Int): IntArray? {
 
 fun main() {
     val nums = intArrayOf(-1, 2, 3, 4, 7)
+    println("array: ${nums.asList()}")
     val target = 5
+    println("required sum $target")
     val result = twoSum(nums, target)
     if (result != null) {
         println("indexes: ${result[0]}, ${result[1]}")

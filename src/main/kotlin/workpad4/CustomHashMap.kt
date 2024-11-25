@@ -9,7 +9,6 @@ class CustomHashMap<K, V>(private val size: Int = 16) {
     private fun getBucketIndex(key: K): Int {
         return key.hashCode().absoluteValue % size
     }
-
     fun put(key: K, value: V) {
         val bucketIndex = getBucketIndex(key)
         val bucket = buckets[bucketIndex]
@@ -17,13 +16,11 @@ class CustomHashMap<K, V>(private val size: Int = 16) {
             bucket.add(Pair(key, value))
         }
     }
-
     fun get(key: K): List<V> {
         val bucketIndex = getBucketIndex(key)
         val bucket = buckets[bucketIndex]
         return bucket.filter { it.first == key }.map { it.second }
     }
-
     fun remove(key: K, value: V): Boolean {
         val bucketIndex = getBucketIndex(key)
         val bucket = buckets[bucketIndex]
@@ -37,7 +34,6 @@ class CustomHashMap<K, V>(private val size: Int = 16) {
         }
         return false
     }
-
     override fun toString(): String {
         return "HashTable(size=$size, buckets=${buckets.contentToString()})"
     }

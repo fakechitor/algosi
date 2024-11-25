@@ -7,6 +7,7 @@ private fun getDeiValue(n: Int): Int {
 }
 
 fun main() {
-    val a = getDeiValue(10)
-    println(a)
+    val number = readln().toInt()
+    val value = getDeiValue(number)
+    println("f($number) = $value")
 }
