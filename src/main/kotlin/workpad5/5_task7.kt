@@ -6,6 +6,7 @@ import kotlin.time.measureTime
 private fun testSorts(smallArray : IntArray, bigArray : IntArray) {
     println("small array size = ${smallArray.size}")
     println("big array size = ${bigArray.size}")
+    println()
     measureBubbleSort(smallArray, bigArray)
     measureShakerSort(smallArray, bigArray)
     measureInsertionSort(smallArray, bigArray)
@@ -82,12 +83,13 @@ private fun measureShellSort(smallArray: IntArray, bigArray : IntArray) {
 
 private fun measureQuickSort(smallArray: IntArray, bigArray : IntArray) {
     println("Quick sort:")
+    println(bigArray.size)
     val timeSmallArray = measureTime {
         quickSort(smallArray, 0, smallArray.size-1)
     }
     println("small array: $timeSmallArray")
     val timeBigArray = measureTime {
-        quickSort(bigArray, 0, smallArray.size-1)
+        quickSort(bigArray, 0, bigArray.size-1)
     }
     println("big array; $timeBigArray")
     println()

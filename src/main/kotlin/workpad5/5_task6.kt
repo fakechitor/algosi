@@ -1,29 +1,35 @@
 package workpad5
 
-fun quickSort(arr: IntArray, low: Int, high: Int) {
-    if (low < high) {
-        val pivotIndex = partition(arr, low, high)
-        quickSort(arr, low, pivotIndex - 1)
-        quickSort(arr, pivotIndex + 1, high)
-    }
-}
+fun quickSort(arr: IntArray, left: Int = 0, right: Int = arr.size - 1): IntArray {
+    var start = left
+    var end = right
+    val pivot = arr[(left + right) / 2]
 
-fun partition(arr: IntArray, low: Int, high: Int): Int {
-    val pivot = arr[high]
-    var i = low - 1
-    for (j in low until high) {
-        if (arr[j] <= pivot) {
-            i++
-            val temp = arr[i]
-            arr[i] = arr[j]
-            arr[j] = temp
+    while (start <= end) {
+        while (arr[start] < pivot) {
+            start++
+        }
+        while (arr[end] > pivot) {
+            end--
+        }
+        if (start <= end) {
+            val temp = arr[start]
+            arr[start] = arr[end]
+            arr[end] = temp
+            start++
+            end--
         }
     }
-    val temp = arr[i + 1]
-    arr[i + 1] = arr[high]
-    arr[high] = temp
-    return i + 1
+
+    if (left < end) {
+        quickSort(arr, left, end)
+    }
+    if (start < right) {
+        quickSort(arr, start, right)
+    }
+    return arr
 }
+
 
 fun main() {
     val array = intArrayOf(228, 34, 25, -121, 322, 11, 0)
