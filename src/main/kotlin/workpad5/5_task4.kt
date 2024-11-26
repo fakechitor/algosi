@@ -15,6 +15,7 @@ fun selectionSort(arr: IntArray) {
 }
 
 fun main() {
+    println("selection sort")
     val array = intArrayOf(228, 34, 25, -121, 322, 11, 0)
     println("array: ${array.toList()}")
     selectionSort(array)

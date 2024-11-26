@@ -1,57 +1,52 @@
-package workpad5
-
+import kotlin.random.Random
 import kotlin.system.measureTimeMillis
 
-fun binarySearch(arr: IntArray, low: Int, high: Int, key: Int): Int {
-    var left = low
-    var right = high
-    while (left <= right) {
-        val mid = left + (right - left) / 2
-        if (arr[mid] == key) {
-            return mid
+private fun insertionSortClassic(array: IntArray) {
+    for (i in 1 until array.size) {
+        val key = array[i]
+        var j = i - 1
+        while (j >= 0 && array[j] > key) {
+            array[j + 1] = array[j]
+            j--
         }
-        if (arr[mid] < key) {
-            left = mid + 1
+        array[j + 1] = key
+    }
+}
+private fun binarySearchPosition(array: IntArray, left: Int, right: Int, key: Int): Int {
+    var low = left
+    var high = right
+    while (low < high) {
+        val mid = (low + high) / 2
+        if (array[mid] > key) {
+            high = mid
         } else {
-            right = mid - 1
+            low = mid + 1
         }
     }
-    return left
+    return low
 }
-
-fun insertionSortWithBinarySearch(arr: IntArray) {
-    for (i in 1 until arr.size) {
-        val key = arr[i]
-        val position = binarySearch(arr, 0, i - 1, key)
-        for (j in i downTo position + 1) {
-            arr[j] = arr[j - 1]
+fun insertionSortBinary(array: IntArray) {
+    for (i in 1 until array.size) {
+        val key = array[i]
+        val pos = binarySearchPosition(array, 0, i, key)
+        for (j in i downTo pos + 1) {
+            array[j] = array[j - 1]
         }
-
-        arr[position] = key
+        array[pos] = key
     }
 }
-
-fun measureExecutionTime(array: IntArray, sortFunction: (IntArray) -> Unit): Long {
-    return measureTimeMillis {
-        sortFunction(array.copyOf())
-    }
-}
-
 fun main() {
-    val smallArray = IntArray(100) { (0..1000).random() }
-    val bigArray = IntArray(10000) { (0..10000).random() }
+    val size = 100_000
+    println("size: $size")
+    val arrayClassic = IntArray(size) { Random.nextInt(0, 10_000) }
+    val arrayBinary = arrayClassic.copyOf()
 
-    val smallArrayTimeInsertionSort = measureExecutionTime(smallArray) { insertionSort(it) }
-    val bigArrayTimeInsertionSort = measureExecutionTime(bigArray) { insertionSort(it) }
-
-    val smallArrayTimeBinarySort = measureExecutionTime(smallArray) { insertionSortWithBinarySearch(it) }
-    val bigArrayTimeBinarySort = measureExecutionTime(bigArray) { insertionSortWithBinarySearch(it) }
-
-    println("insertion sort")
-    println("small array: $smallArrayTimeInsertionSort ms")
-    println("big array: $bigArrayTimeInsertionSort ms")
-
-    println("binary insertion sort")
-    println("small array: $smallArrayTimeBinarySort ms")
-    println("big array: $bigArrayTimeBinarySort ms")
+    val timeClassic = measureTimeMillis {
+        insertionSortClassic(arrayClassic)
+    }
+    val timeBinary = measureTimeMillis {
+        insertionSortBinary(arrayBinary)
+    }
+    println("insertion sort: $timeClassic мс")
+    println("binary insertion sort: $timeBinary мс")
 }

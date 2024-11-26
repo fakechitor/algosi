@@ -2,7 +2,6 @@ package workpad5
 
 import kotlin.time.measureTime
 
-
 private fun testSorts(smallArray : IntArray, bigArray : IntArray) {
     println("small array size = ${smallArray.size}")
     println("big array size = ${bigArray.size}")
@@ -13,9 +12,7 @@ private fun testSorts(smallArray : IntArray, bigArray : IntArray) {
     measureSelectionSort(smallArray, bigArray)
     measureShellSort(smallArray, bigArray)
     measureQuickSort(smallArray, bigArray)
-
 }
-
 private fun measureBubbleSort(smallArray: IntArray, bigArray : IntArray) {
     println("Bubble sort:")
     val timeSmallArray = measureTime {
@@ -28,7 +25,6 @@ private fun measureBubbleSort(smallArray: IntArray, bigArray : IntArray) {
     println("big array; $timeBigArray")
     println()
 }
-
 private fun measureShakerSort(smallArray: IntArray, bigArray : IntArray) {
     println("Shaker sort:")
     val timeSmallArray = measureTime {
@@ -41,7 +37,6 @@ private fun measureShakerSort(smallArray: IntArray, bigArray : IntArray) {
     println("big array; $timeBigArray")
     println()
 }
-
 private fun measureInsertionSort(smallArray: IntArray, bigArray : IntArray) {
     println("Insertion sort:")
     val timeSmallArray = measureTime {
@@ -54,7 +49,6 @@ private fun measureInsertionSort(smallArray: IntArray, bigArray : IntArray) {
     println("big array; $timeBigArray")
     println()
 }
-
 private fun measureSelectionSort(smallArray: IntArray, bigArray : IntArray) {
     println("Selection sort:")
     val timeSmallArray = measureTime {
@@ -67,7 +61,6 @@ private fun measureSelectionSort(smallArray: IntArray, bigArray : IntArray) {
     println("big array; $timeBigArray")
     println()
 }
-
 private fun measureShellSort(smallArray: IntArray, bigArray : IntArray) {
     println("Shell sort:")
     val timeSmallArray = measureTime {
@@ -80,7 +73,6 @@ private fun measureShellSort(smallArray: IntArray, bigArray : IntArray) {
     println("big array; $timeBigArray")
     println()
 }
-
 private fun measureQuickSort(smallArray: IntArray, bigArray : IntArray) {
     println("Quick sort:")
     println(bigArray.size)
@@ -94,7 +86,6 @@ private fun measureQuickSort(smallArray: IntArray, bigArray : IntArray) {
     println("big array; $timeBigArray")
     println()
 }
-
 fun main() {
     val smallArray = intArrayOf(228, 34, 25, -121, 322, 11, 0)
     var bigArray = IntArray(20001) { it - 10000 }

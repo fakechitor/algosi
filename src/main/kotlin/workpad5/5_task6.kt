@@ -32,6 +32,7 @@ fun quickSort(arr: IntArray, left: Int = 0, right: Int = arr.size - 1): IntArray
 
 
 fun main() {
+    println("quick sort")
     val array = intArrayOf(228, 34, 25, -121, 322, 11, 0)
     println("array: ${array.toList()}")
     quickSort(array, 0, array.size - 1)
