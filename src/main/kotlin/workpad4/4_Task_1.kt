@@ -21,4 +21,5 @@ fun main() {
     printGcd(0, 4)
     printGcd(0, 0)
     printGcd(8, 64)
+    printGcd(-8, 0)
 }

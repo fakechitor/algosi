@@ -10,8 +10,13 @@ fun main() {
 
     val users: List<Map<String, Any>> = mapper.readValue(jsonData)
 
-    val userMap: Map<Int, String> = users.associate {
-        it["id"] as Int to it["name"] as String
+    val userMap: HashMap<Int, MutableList<String>> = HashMap()
+
+    users.forEach {
+        val id = it["id"] as Int
+        val name = it["name"] as String
+        userMap.computeIfAbsent(id) { mutableListOf() }.add(name)
     }
+
     println(userMap)
 }

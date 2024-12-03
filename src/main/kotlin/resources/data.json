@@ -4,6 +4,10 @@
     "name" : "Alex"
   },
   {
+    "id" : 1,
+    "name" : "Another Alex"
+  },
+  {
       "id" : 2,
       "name" : "Ivan"
   }
