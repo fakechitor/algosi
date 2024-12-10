@@ -37,4 +37,3 @@ fun main() {
     println("д) $countConditionD")
     println("е) $countEvenIndexOddValue")
 }
-

@@ -23,7 +23,7 @@ private class CustomLinkedList {
 
 fun main() {
     val numbers = listOf(3, 5, 12, 15, 30)
-    println(numbers.toString())
+    println("nums: $numbers")
     val myList = CustomLinkedList()
 
     for (num in numbers) {
@@ -37,5 +37,5 @@ fun main() {
         temp = temp.nextNode
     }
 
-    println(sum)
+    println("sum: $sum")
 }

@@ -9,7 +9,7 @@ fun main() {
     val twoDigitQueue = ArrayDeque<Int>()
 
     file.forEachLine { line ->
-        val tokens = line.split(Regex("\\s+")).filter { it.isNotEmpty() }
+        val tokens = line.split(" ").filter { it.isNotEmpty() }
         for (token in tokens) {
             val num = token.toIntOrNull() ?: continue
             if (num in 1..9) {
